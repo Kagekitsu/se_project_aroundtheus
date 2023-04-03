@@ -1,13 +1,12 @@
 .cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   border-radius: 10px;
+  grid-template-columns: repeat(auto-fit, 282px);
+  display: flex;
 }
 
 .cards__list {
-  display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, 282px);
   grid-gap: 20px 17px;
   padding: 0;
   margin: 0;
@@ -27,17 +26,19 @@
 }
 
 .card__description {
-  padding: 25px 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
   align-items: center;
   justify-content: space-between;
   display: flex;
-  background-color: #fff;
-  color: #000;
-  align-items: center;
+  background-color: white;
+  color: black;
 }
 
 .card__title {
-  font-family: 'Inter';
+  font-family: "Inter", Arial, sans-serif;
   max-width: 220px;
   font-size: 24px;
   font-weight: 900;
