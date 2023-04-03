@@ -3,12 +3,15 @@
   color: #fff;
 }
 
-.page__content {
-  margin-left: 200px;
-  margin-right: 200px;
+.page__section {
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto
 }
 
-.header {
-  margin-top: 45px;
-  max-width: 880px;
+.page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
