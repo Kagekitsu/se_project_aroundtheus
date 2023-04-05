@@ -6,11 +6,11 @@
   height: 18px;
   padding-bottom: 120px;
   margin: 0;
+  font-family: 'Inter';
 }
 
 .footer__copyright {
   margin-top: 60px;
-  font-family: 'Inter';
   font-style: normal;
   font-size: 18px;
   line-height: 22px;
