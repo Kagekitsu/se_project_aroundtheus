@@ -20,4 +20,4 @@ The way you'll do this at work is by exporting images directly from Figma — we
   
 ![Desktop Image](images/desktop-image.png)
 
-
+![Mobile Image](images/mobile-image.png)
