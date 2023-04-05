@@ -1,10 +1,10 @@
 .footer {
   background: #000;
   color: #545454;
-  padding-left: 325px;
+  padding-left: 120px;
   width: 318px;
   height: 18px;
-  padding-bottom: 60px;
+  padding-bottom: 120px;
   margin: 0;
 }
 
@@ -14,15 +14,19 @@
   font-style: normal;
   font-size: 18px;
   line-height: 22px;
+  box-sizing: border-box;
 }
 
-@media screen and (max-width: 480px) {
-  .footer {
-      width: 282px;
-    }
-
-    .footer__copyright {
-      margin-top: 48px;
-      margin-bottom: 36px;
-    }
+@media screen and (max-width: 1280px) {
+  .footer__copyright {
+    text-align: center;
   }
+}
+
+@media screen and (max-width: 800px) {
+  .footer__copyright {
+    text-align: center;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
