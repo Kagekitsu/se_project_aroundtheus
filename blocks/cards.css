@@ -1,16 +1,18 @@
 .cards {
-  display: grid;
-  border-radius: 10px;
-  grid-template-columns: repeat(auto-fit, 282px);
   display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 70px;
 }
 
-.cards__list {
+.card__list {
+  display: grid;
   justify-content: center;
   grid-gap: 20px 17px;
   padding: 0;
   margin: 0;
   list-style: none;
+  grid-template-columns: repeat(auto-fit, 282px);
 }
 
 .card {
@@ -26,19 +28,16 @@
 }
 
 .card__description {
-  padding-top: 25px;
-  padding-bottom: 25px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 25px 20px;
   align-items: center;
   justify-content: space-between;
   display: flex;
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #000;
 }
 
 .card__title {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter';
   max-width: 220px;
   font-size: 24px;
   font-weight: 900;
@@ -55,4 +54,9 @@
   height: 18px;
   border: none;
   list-style: none;
+}
+
+.card__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
