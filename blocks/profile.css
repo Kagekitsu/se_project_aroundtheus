@@ -34,6 +34,7 @@
     width: 150px;
     border: 2px solid #fff;
     margin-left: auto;
+    border-radius: 2px;
 }
 
 .profile__add-button:hover {
