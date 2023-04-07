@@ -4,9 +4,10 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.15);
   position: fixed;
   padding: 0 19px;
+  box-shadow: 0 0 25px;
 }
 
 .model__container {
@@ -37,4 +38,11 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
+}
+
+.model__form {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 425px;
 }

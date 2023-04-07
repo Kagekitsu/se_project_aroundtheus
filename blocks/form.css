@@ -1,0 +1,17 @@
+.form__input {
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  margin-bottom: 57px;
+}
+
+.form__button {
+  background: #000;
+  border-radius: 2px;
+  color: #fff;
+  height: 48px;
+}
