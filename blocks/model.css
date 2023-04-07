@@ -1,0 +1,40 @@
+.model {
+  display: flex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  padding: 0 19px;
+}
+
+.model__container {
+  padding: 36px;
+  background-color: #fff;
+  color: #000;
+  margin: auto;
+  border-radius: 10px;
+  position: relative;
+}
+
+.model__close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/close.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.model__heading {
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
