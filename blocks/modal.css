@@ -1,5 +1,4 @@
-.model {
-  display: flex;
+.modal {
   top: 0;
   right: 0;
   bottom: 0;
@@ -10,7 +9,11 @@
   box-shadow: 0 0 25px;
 }
 
-.model__container {
+.modal__opened {
+  display: flex;
+}
+
+.modal__container {
   padding: 36px;
   background-color: #fff;
   color: #000;
@@ -19,7 +22,7 @@
   position: relative;
 }
 
-.model__close {
+.modal__close {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -33,14 +36,14 @@
   cursor: pointer;
 }
 
-.model__heading {
+.modal__heading {
   font-family: 'Inter', Arial, sans-serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
 }
 
-.model__form {
+.modal__form {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
