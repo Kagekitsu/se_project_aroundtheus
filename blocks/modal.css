@@ -50,3 +50,19 @@
   box-sizing: border-box;
   width: 425px;
 }
+
+@media screen and (max-width:630) {
+  .model__container {
+    max-width: 282px;
+    max-height: 322px;
+    padding: 22px
+  }
+
+  .model__close {
+    width: 26px;
+    height: 26px;
+    bottom: calc(100% + 13px);
+    left: calc(100% + 26px)
+  }
+
+}
