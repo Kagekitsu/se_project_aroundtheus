@@ -24,67 +24,34 @@
         <button class="profile__add-button" type="button"></button>
         </section>
         <section class="cards">
-          <ul class="cards__list">
-            <li class="card">
-              <img src="./images/yosemite.jpg" class="card__image" alt="Yosemite">
-              <div class="card__description">
-              <h2 class="card__title">Yosemite Valley</h2>
-              <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/lake-louise.jpg" class="card__image" alt="Lake Louise">
-              <div class="card__description">
-              <h2 class="card__title">Lake Louise</h2>
-              <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/bald-mountains.jpg" class="card__image" alt="Bald Mountains">
-              <div class="card__description">
-              <h2 class="card__title">Bald Mountains</h2>
-              <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/latemar.jpg" class="card__image" alt="Latemar">
-              <div class="card__description">
-              <h2 class="card__title">Latemar</h2>
-              <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/vanoise.jpg" class="card__image" alt="Vanoise">
-              <div class="card__description">
-              <h2 class="card__title">Vanoise National Park</h2>
-              <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/lago.jpg" class="card__image" alt="Lago di Braies">
-              <div class="card__description">
-              <h2 class="card__title">Lago di Braies</h2>
-              <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer page__section">
         <p class="footer__copyright">&copy; 2023 Braden Jackson</p>
       </footer>
     </div>
-    <div class="modal">
+    <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close" type="button" id="modal-close-button"></button>
-        <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form form">
-          <input type="text" class="form__input" name="Name" placeholder="Jacques Cousteau">
-          <input type="text" class="form__input" name="About Me" placeholder="Explorer">
-          <button class="form__button">Save</button>
+        <h3 class="modal__heading">Edit Profile</h3>
+        <form class="modal__form">
+          <input type="text" class="modal__input" name="title" id="profile-title-input" placeholder="Name">
+          <input type="text" class="modal__input" name="description" id="profile-description-input" placeholder="Description">
+          <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
     </div>
+
+    <template id="card-template">
+    <li class="card">
+      <img src="" class="card__image" alt="">
+      <div class="card__description">
+      <h2 class="card__title"></h2>
+      <button class="card__like-button" type="button"></button>
+      </div>
+    </li>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
