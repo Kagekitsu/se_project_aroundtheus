@@ -71,9 +71,15 @@
   background: #000;
   border-radius: 2px;
   color: #fff;
-  height: 48px;
+  height: 50px;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+  border: none;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
 }
 
 .modal__buton:hover {
