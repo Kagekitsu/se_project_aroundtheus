@@ -69,30 +69,49 @@
   height: 48px;
 }
 
-@media screen and (max-width:630) {
+/*@media screen and (max-width:640px) {
   .model__container {
     max-width: 282px;
     max-height: 322px;
-    padding: 22px
+    padding: 22px;
   }
 
   .model__close {
     width: 26px;
     height: 26px;
     bottom: calc(100% + 13px);
-    left: calc(100% + 26px)
+    left: calc(100% + 26px);
   }
 
   .modal__form {
     font-size: 14px;
     line-height: 17px;
   }
-  .modal__heading {
+  .modal__title {
     width: 100%;
     font-size: 18px;
     line-height: 22px;
   }
   .modal__button {
     font-size: 14px;
+  }
+} */
+
+@media screen and (max-width:880px) {
+  .modal__container {
+    width: 282px;
+    width: 100%;
+    margin-top: 123px;
+  }
+
+  .modal__close {
+    width: 26px;
+    height: 26px;
+    bottom: calc(100% + 15px);
+    left: calc(100% - 35px);
+  }
+
+  .modal__form {
+    width: 100%;
   }
 }
