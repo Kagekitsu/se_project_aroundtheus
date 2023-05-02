@@ -44,7 +44,7 @@ const profileName = document.querySelector(".card__title");
 const profileImage = document.querySelector(".card__description");
 const profileNameInput = profileAddModal.querySelector("#add-name-input");
 const profileImageInput = profileAddModal.querySelector("#add-url-input");
-const cardTemplate = document.querySelector("#card-template");
+const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
 const cardListEl = document.querySelector(".cards__list");
 
 function closePopup() {
@@ -53,7 +53,7 @@ function closePopup() {
 }
 
 function getCardElement(cardData) {
-  const cardElement = cardTemplate.content.cloneNode(true);
+  const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
