@@ -15,6 +15,7 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: 10px;
+  position: relative;
 }
 
 .card__image {
@@ -37,6 +38,7 @@
   width: 21px;
   height: 18px;
   border: none;
+  cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
 
@@ -45,7 +47,22 @@
 }
 
 .card__like-button:hover {
+  opacity: 0.5;
+}
+
+.card__delete-button {
+  position: relative;
+  background: transparent url(../images/trash-icon.png) center no-repeat;
   cursor: pointer;
+  width: 18px;
+  height: 19px;
+  left: 250px;
+  top: 30px;
+  border: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.card__delete-button:hover {
   opacity: 0.5;
 }
 
