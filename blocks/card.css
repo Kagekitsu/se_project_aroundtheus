@@ -16,12 +16,14 @@
   overflow: hidden;
   border-radius: 10px;
   position: relative;
+
 }
 
 .card__image {
   display: flex;
   width: 282px;
   height: 282px;
+  cursor: pointer;
 }
 
 .card__description {
