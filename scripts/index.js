@@ -52,10 +52,12 @@ const popupCaption = previewImageModal.querySelector(".modal__caption");
 const previewImgCloseBtn = previewImageModal.querySelector(".modal__close");
 
 
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
-  profileAddModal.classList.remove("modal_opened");
-  previewImageModal.classList.remove("modal_opened")
+function openPopup(popup) {
+  popup.classList.add("modal_opened");
+}
+
+function closePopup(popup) {
+  popup.classList.remove("modal_opened")
 }
 
 function getCardElement(cardData) {
@@ -74,7 +76,7 @@ function getCardElement(cardData) {
   });
 
   cardImageEl.addEventListener("click", () => {
-    previewImageModal.classList.add("modal_opened");
+    openPopup(previewImageModal);
     popupImage.src = cardData.link;
     popupCaption.textContent = cardData.name;
   })
@@ -90,7 +92,7 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
+  closePopup(profileEditModal);
 }
 
 function handleProfileAddSubmit(e) {
@@ -99,8 +101,8 @@ function handleProfileAddSubmit(e) {
     name: profileNameInput.value,
     link: profileImageInput.value,
   });
-  cardListEl.append(cardElement);
-  closePopup();
+  cardListEl.prepend(cardElement);
+  closePopup(profileAddModal);
 }
 
 profileEditBtn.addEventListener("click", () => {
@@ -117,11 +119,15 @@ popupImage.addEventListener("click", () => {
   previewImageModal.classList.add("modal_opened")
 });
 
-profileCloseBtn.addEventListener("click", closePopup);
+profileCloseBtn.addEventListener("click", () => {
+  closePopup(profileEditModal);
+});
+previewImgCloseBtn.addEventListener("click", () => {
+  closePopup(previewImageModal);
+});
+
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-profileAddCloseBtn.addEventListener("click", closePopup);
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
-previewImgCloseBtn.addEventListener("click", closePopup)
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
