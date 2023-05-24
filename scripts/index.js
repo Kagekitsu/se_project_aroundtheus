@@ -54,10 +54,19 @@ const previewImgCloseBtn = previewImageModal.querySelector(".modal__close");
 
 function openPopup(popup) {
   popup.classList.add("modal_opened");
+  document.addEventListener('keydown', closeModalWithKey);
 }
 
 function closePopup(popup) {
-  popup.classList.remove("modal_opened")
+  popup.classList.remove("modal_opened");
+  document.removeEventListener('keydown', closeModalWithKey);
+}
+
+const closeModalWithKey = (e) => {
+  if (e.key === 'Escape') {
+    const currentModal = document.querySelector('.modal_opened');
+    closeModalWithKey(currentModal);
+  }
 }
 
 function getCardElement(cardData) {
@@ -103,9 +112,13 @@ function handleProfileAddSubmit(e) {
     link: profileImageInput.value,
   });
   cardListEl.prepend(cardElement);
-  closePopup(profileAddModal)
+  closePopup(profileAddModal);
+
   profileAddForm.reset();
-}
+  const inputEls = [...profileAddFrom.querySelectorAll(config.inputSelector)];
+  const submitBtn = profileAddFrom.querySelector(config.submitBtnSelector);
+  toggleBtnState(inputEls, submitBtn, config);
+};
 
 profileEditBtn.addEventListener("click", () => {
   openPopup(profileEditModal);
