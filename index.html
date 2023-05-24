@@ -61,6 +61,9 @@
             name="title"
             id="profile-title-input"
             placeholder="Name"
+            minlength="2"
+            maxlength="40"
+            required
           />
           <input
             type="text"
@@ -68,6 +71,9 @@
             name="description"
             id="profile-description-input"
             placeholder="Description"
+            minlength="2"
+            maxlength="200"
+            required
           />
           <button class="modal__button" id="profile-save-button" type="submit">
             Save
@@ -86,6 +92,9 @@
             name="title"
             id="add-name-input"
             placeholder="Title"
+            minlength="1"
+            maxlength="30"
+            required
           />
           <input
             type="url"
@@ -93,6 +102,7 @@
             name="url"
             id="add-url-input"
             placeholder="Image URL"
+            required
           />
           <button
             class="modal__button"

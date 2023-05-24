@@ -74,6 +74,10 @@
   margin-bottom: 57px;
 }
 
+.modal__input:invalid {
+  border-bottom: 1px solid red;
+}
+
 .modal__button {
   background: #000;
   border-radius: 2px;
