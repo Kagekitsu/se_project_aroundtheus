@@ -65,6 +65,7 @@
             maxlength="40"
             required
           />
+          <span class="modal__error" id="profile-title-input-error"></span>
           <input
             type="text"
             class="modal__input"
@@ -75,6 +76,7 @@
             maxlength="200"
             required
           />
+          <span class="modal__error" id="profile-description-input-error"></span>
           <button class="modal__button" id="profile-save-button" type="submit">
             Save
           </button>
@@ -96,6 +98,7 @@
             maxlength="30"
             required
           />
+          <span class="modal__error" id="add-name-input-error"></span>
           <input
             type="url"
             class="modal__input"
@@ -104,6 +107,7 @@
             placeholder="Image URL"
             required
           />
+          <span class="modal__error" id="add-url-input-error"></span>
           <button
             class="modal__button"
             id="profile-create-button"
@@ -132,5 +136,6 @@
       </li>
     </template>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
   </body>
 </html>
