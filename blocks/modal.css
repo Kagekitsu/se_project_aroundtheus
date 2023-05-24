@@ -136,6 +136,16 @@
   background: none;
 }
 
+.modal__input_type_error {
+  border-color: red;
+}
+
+.modal__error_visible {
+  display: block;
+  color: red;
+}
+
+
 @media screen and (max-width:880px) {
   .modal__container {
     width: 282px;
