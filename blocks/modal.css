@@ -74,6 +74,10 @@
   margin-bottom: 57px;
 }
 
+.modal__input_type_error {
+  margin-bottom: 0px;
+}
+
 .modal__input:invalid {
   border-bottom: 1px solid red;
 }
@@ -91,6 +95,15 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+}
+
+.modal__button_disabled {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  cursor: default;
 }
 
 .modal__button:hover {
