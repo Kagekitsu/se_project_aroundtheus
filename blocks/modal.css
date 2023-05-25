@@ -75,9 +75,31 @@
 }
 
 
-.modal__input:invalid {
-  border-bottom: 1px solid red;
+.modal__input_type_error {
+  margin-bottom: 0px;
 }
+
+.modal__input_type_error:last-of-type {
+  margin-bottom: 0px;
+}
+
+.modal__error_visible {
+  position: relative;
+  top: calc(100% + 5px);
+  color: red;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 400;
+  min-height: 30px;
+  display: block;
+  border-top: 1px solid red;
+  border-top-width: 100%;
+}
+
+/*.modal__input:invalid {
+  border-bottom: 1px solid red;
+} */
 
 .modal__button {
   background: #000;
@@ -132,16 +154,6 @@
 .modal__container_type_preview {
   background: none;
 }
-
-.modal__input_type_error {
-  border-color: red;
-}
-
-.modal__error_visible {
-  display: block;
-  color: red;
-}
-
 
 @media screen and (max-width:880px) {
   .modal__container {

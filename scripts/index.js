@@ -131,8 +131,8 @@ function handleProfileAddSubmit(e) {
   closePopup(profileAddModal);
 
   profileAddForm.reset();
-  const inputEls = [...profileAddFrom.querySelectorAll(config.inputSelector)];
-  const submitBtn = profileAddFrom.querySelector(config.submitBtnSelector);
+  const inputEls = [...profileAddForm.querySelectorAll(config.inputSelector)];
+  const submitBtn = profileAddForm.querySelector(config.submitBtnSelector);
   toggleBtnState(inputEls, submitBtn, config);
 };
 
