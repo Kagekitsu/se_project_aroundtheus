@@ -66,11 +66,9 @@ function enableValidation(options) {
     setEventListeners(formEl, options);
   });
 
-  // Add click event listener to close the modal when clicking outside of any modal element
   document.addEventListener("click", (e) => {
     const modalEl = document.querySelector(options.formSelector);
     if (modalEl && !modalEl.contains(e.target)) {
-      // Clicked outside of any modal element, close the modal here
       const closeBtn = formEl.querySelector(".modal__close");
       closeBtn.click();
     }

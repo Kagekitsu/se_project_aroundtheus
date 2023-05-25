@@ -51,6 +51,8 @@ const popupImage = previewImageModal.querySelector(".modal__image");
 const popupCaption = previewImageModal.querySelector(".modal__caption");
 const previewImgCloseBtn = previewImageModal.querySelector(".modal__close");
 
+const popup = [...document.querySelectorAll('.modal')];
+
 
 function openPopup(popup) {
   popup.classList.add("modal_opened");
@@ -65,7 +67,7 @@ function closePopup(popup) {
 const closeModalWithKey = (e) => {
   if (e.key === 'Escape') {
     const currentModal = document.querySelector('.modal_opened');
-    closeModalWithKey(currentModal);
+    closePopup(currentModal);
   }
 }
 
@@ -97,6 +99,20 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+function closePopupModal(popup) {
+  popup.addEventListener('click', (e) => {
+    if (
+      e.target.classList.contains('modal') ||
+      e.target.classList.contains('modal__close')
+    ) {
+      closePopup(popup)
+    }
+  });
+}
+
+popup.forEach((modal) => {
+  closePopupModal(modal);
+});
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
