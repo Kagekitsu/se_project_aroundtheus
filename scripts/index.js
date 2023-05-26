@@ -51,7 +51,7 @@ const popupImage = previewImageModal.querySelector(".modal__image");
 const popupCaption = previewImageModal.querySelector(".modal__caption");
 const previewImgCloseBtn = previewImageModal.querySelector(".modal__close");
 
-const popup = [...document.querySelectorAll('.modal')];
+const popups = [...document.querySelectorAll('.modal')];
 
 
 function openPopup(popup) {
@@ -110,7 +110,7 @@ function closePopupModal(popup) {
   });
 }
 
-popup.forEach((modal) => {
+popups.forEach((modal) => {
   closePopupModal(modal);
 });
 
@@ -146,19 +146,8 @@ profileAddBtn.addEventListener("click", () => {
   openPopup(profileAddModal)
 });
 
-profileAddCloseBtn.addEventListener("click", () => {
-  closePopup(profileAddModal);
-})
-
 popupImage.addEventListener("click", () => {
   openPopup(previewImageModal)
-});
-
-profileCloseBtn.addEventListener("click", () => {
-  closePopup(profileEditModal);
-});
-previewImgCloseBtn.addEventListener("click", () => {
-  closePopup(previewImageModal);
 });
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
