@@ -1,77 +1,22 @@
-function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-  const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.add(inputErrorClass);
-  errorMessageEl.textContent = inputEl.validationMessage;
-  errorMessageEl.classList.add(errorClass);
+export function openPopup(popup) {
+  popup.classList.add("modal_opened");
+  document.addEventListener('keydown', closeModalWithKey);
 }
 
-function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-  const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.remove(inputErrorClass);
-  errorMessageEl.textContent = "";
-  errorMessageEl.classList.remove(errorClass);
+export function closePopup(popup) {
+  popup.classList.remove("modal_opened");
+  document.removeEventListener('keydown', closeModalWithKey);
 }
 
-function checkInputValidity(formEl, inputEl, options) {
-  if (!inputEl.validity.valid) {
-    return showInputError(formEl, inputEl, options);
-  }
-  hideInputError(formEl, inputEl, options);
-}
-function hasInvalidInput(inputList) {
-  return !inputList.every((inputEl) => {
-    return inputEl.validity.valid;
-  });
-}
-
-function disableBtn(submitBtn, { inactiveButtonClass }) {
-  submitBtn.classList.add(inactiveButtonClass);
-  submitBtn.disabled = true;
-}
-
-function enableBtn(submitBtn, { inactiveButtonClass }) {
-  submitBtn.classList.remove(inactiveButtonClass);
-  submitBtn.disabled = false;
-}
-
-function toggleBtnState(inputEls, submitBtn, { inactiveButtonClass }) {
-  if (hasInvalidInput(inputEls)) {
-    disableBtn(submitBtn, { inactiveButtonClass });
-  } else {
-    enableBtn(submitBtn, { inactiveButtonClass });
+export function closeModalWithKey(e) {
+  if (e.key === 'Escape') {
+    const currentModal = document.querySelector('.modal_opened');
+    closePopup(currentModal);
   }
 }
 
-function setEventListeners(formEl, options) {
-  const { inputSelector, submitBtnSelector } = options;
-  const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  const submitBtn = formEl.querySelector(submitBtnSelector);
-  toggleBtnState(inputEls, submitBtn, options);
-  inputEls.forEach((inputEl) => {
-    inputEl.addEventListener("input", (e) => {
-      checkInputValidity(formEl, inputEl, options);
-      toggleBtnState(inputEls, submitBtn, options);
-    });
-  });
+export function closeModalOutsideClick(e) {
+  if (e.target === e.currentTarget) {
+    closePopup(e.currentTarget);
+  }
 }
-
-function enableValidation(options) {
-  const formEls = [...document.querySelectorAll(options.formSelector)];
-  formEls.forEach((formEl) => {
-    formEl.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-    setEventListeners(formEl, options);
-  });
-}
-
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitBtnSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
-
-enableValidation(config);

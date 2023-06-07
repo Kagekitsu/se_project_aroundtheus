@@ -1,42 +1,34 @@
-class Card {
-    constructor(data, cardSelector) {
-      this._name = data.name;
-      this._link = data.link;
-  
-      this._cardSelector = cardSelector;
-    }
-  
-    _setEventListeners() {
-      this._element.querySelector('.card__delete-button').addEventListener('click', () => {
-        this._element.remove();
-      });
-  
-      this._element.querySelector('.card__like-button').addEventListener('click', () => {
-        this._element.querySelector('.card__like-button').classList.toggle('card__like-button_active');
-      });
-  
-      this._element.querySelector('.card__image').addEventListener('click', () => {
-        openPopup(previewImageModal);
-        popupImage.src = this._link;
-        popupImage.alt = this._name;
-        popupCaption.textContent = this._name;
-      });
-    }
-  
-    _getTemplate() {
-      return document
-        .querySelector(this._cardSelector)
-        .content.querySelector('.card')
-        .cloneNode(true);
-    }
-  
-    getView() {
-      this._element = this._getTemplate();
-      this._setEventListeners();
-  
-      return this._element;
-    }
+export default class Card {
+  constructor(cardData, handleCardClick) {
+    this._name = cardData.name;
+    this._link = cardData.link;
+    this._handleCardClick = handleCardClick;
   }
-  
-  export default Card;
-  
+
+  _getTemplate() {
+    const cardTemplate = document.querySelector("#card-template").content.querySelector(".card").cloneNode(true);
+    return cardTemplate;
+  }
+
+  getView() {
+    this._element = this._getTemplate();
+
+    const cardImage = this._element.querySelector(".card__image");
+    const cardTitle = this._element.querySelector(".card__title");
+
+    cardImage.src = this._link;
+    cardImage.alt = this._name;
+    cardTitle.textContent = this._name;
+
+    this._setEventListeners();
+
+    return this._element;
+  }
+
+  _setEventListeners() {
+    const cardImage = this._element.querySelector(".card__image");
+    cardImage.addEventListener("click", () => {
+      this._handleCardClick(this._link, this._name);
+    });
+  }
+}
