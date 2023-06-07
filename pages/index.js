@@ -42,8 +42,8 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const profileAddForm = profileAddModal.querySelector(".modal__form");
+const profileEditForm = document.querySelector("#modal-edit-form");
+const profileAddForm = document.querySelector("#modal-add-form");
 const cardListEl = document.querySelector(".cards__list");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const popupImage = previewImageModal.querySelector(".modal__image");
@@ -87,26 +87,23 @@ function createCard(cardData) {
   const card = new Card(cardData, handleCardClick);
   const cardElement = card.getView();
 
-  const cardLikeButton = cardElement.querySelector(".card__like-button");
-  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+  const cardImage = cardElement.querySelector('.card__image');
+  const cardTitle = cardElement.querySelector('.card__title');
 
-  cardDeleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-button_active");
-  });
+  cardImage.src = cardData.link;
+  cardImage.alt = cardData.name;
+  cardTitle.textContent = cardData.name;
 
   cardListEl.prepend(cardElement);
 }
 
-function handleCardClick(name, link) {
+function handleCardClick(link, name) {
   openPopup(previewImageModal);
-  popupImage.src = name;
-  popupImage.alt = link;
+  popupImage.src = link;
+  popupImage.alt = name;
   popupCaption.textContent = name;
 }
+
 
 profileEditBtn.addEventListener("click", () => {
   openPopup(profileEditModal);
