@@ -44,6 +44,11 @@ const profileDescriptionInput = document.querySelector(
 
 const profileEditForm = document.querySelector("#modal-edit-form");
 const profileAddForm = document.querySelector("#modal-add-form");
+const profileName = document.querySelector(".card__title");
+const profileImage = document.querySelector(".card__description");
+const profileNameInput = profileAddModal.querySelector("#add-name-input");
+const profileImageInput = profileAddModal.querySelector("#add-url-input");
+const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
 const cardListEl = document.querySelector(".cards__list");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const popupImage = previewImageModal.querySelector(".modal__image");
@@ -74,8 +79,8 @@ function handleProfileEditSubmit(e) {
 function handleProfileAddSubmit(e) {
   e.preventDefault();
   const cardData = {
-    name: profileTitleInput.value,
-    link: profileDescriptionInput.value,
+    name: profileNameInput.value,
+    link: profileImageInput.value,
   };
   createCard(cardData);
   closePopup(profileAddModal);
