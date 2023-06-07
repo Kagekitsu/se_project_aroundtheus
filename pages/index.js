@@ -1,3 +1,6 @@
+import Card from "../components/Card.js"
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -50,6 +53,7 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 const popupImage = previewImageModal.querySelector(".modal__image");
 const popupCaption = previewImageModal.querySelector(".modal__caption");
 const previewImgCloseBtn = previewImageModal.querySelector(".modal__close");
+const cardSelector = '.card-template';
 
 const popups = [...document.querySelectorAll('.modal')];
 
@@ -70,6 +74,20 @@ const closeModalWithKey = (e) => {
     closePopup(currentModal);
   }
 }
+
+const validationSettings = {
+  inputSelector: ".modal__input",
+  submitBtnSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+}
+
+const editFormValidator = new FormValidator(validationSettings, profileEditForm);
+const addFormValidator = new FormValidator(validationSettings, profileAddForm);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -127,7 +145,9 @@ function handleProfileAddSubmit(e) {
     name: profileNameInput.value,
     link: profileImageInput.value,
   });
-  cardListEl.prepend(cardElement);
+
+  const card = new Card(data, cardSelector);
+  cardListEl.prepend(card.getView());
   closePopup(profileAddModal);
 
   profileAddForm.reset();
