@@ -91,13 +91,7 @@ function handleProfileAddSubmit(e) {
 function createCard(cardData) {
   const card = new Card(cardData, handleCardClick);
   const cardElement = card.getView();
-  const cardImage = card.getView('.card__image');
-  const cardTitle = cardElement.querySelector('.card__title');
 
-  card._setEventListeners();
-  cardImage.src = card.getView(cardData.link);
-  cardImage.alt = cardData.name;
-  cardTitle.textContent = cardData.name;
 
   cardListEl.prepend(cardElement);
 }

@@ -8,8 +8,8 @@ export default class Card {
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLikeButtonClick.bind(this));
     this._deleteButton.addEventListener("click", this._handleDeleteButtonClick.bind(this));
+    this._cardImage.addEventListener("click", this._handleCardImageClick.bind(this));
   }
-  
 
   _getTemplate() {
     const cardTemplate = document.querySelector("#card-template").content.querySelector(".card").cloneNode(true);
@@ -42,3 +42,4 @@ export default class Card {
     return this._element;
   }
 }
+
