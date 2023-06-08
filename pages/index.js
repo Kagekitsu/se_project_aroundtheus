@@ -92,7 +92,7 @@ function createCard(cardData) {
   const card = new Card(cardData, handleCardClick);
   const cardElement = card.getView();
 
-  const cardImage = cardElement.querySelector('.card__image');
+  const cardImage = card.getView('.card__image');
   const cardTitle = cardElement.querySelector('.card__title');
 
   cardImage.src = cardData.link;
