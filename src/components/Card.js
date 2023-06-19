@@ -21,7 +21,7 @@ export default class Card {
   }
 
   _handleDeleteButtonClick() {
-    this._element.remove();
+    this._element = null;
   }
 
   _handleCardImageClick() {
@@ -31,7 +31,6 @@ export default class Card {
   getView() {
     this._element = this._getTemplate();
     this._cardImage = this._element.querySelector(".card__image");
-    this._cardTitle = this._element.querySelector(".card__title");
     this._likeButton = this._element.querySelector(".card__like-button");
     this._deleteButton = this._element.querySelector(".card__delete-button");
 
