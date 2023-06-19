@@ -123,7 +123,7 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 initialCards.forEach((cardData) => {
-  Section.addItem(createCard(cardData));
+  createCard(cardData);
 });
 
 const popups = [profileEditModal, profileAddModal, previewImageModal];
