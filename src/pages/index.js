@@ -72,29 +72,33 @@ addFormValidator.enableValidation();
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup(profileEditModal);
+  Popup(profileEditModal);
 }
 
 function handleProfileAddSubmit(e) {
   e.preventDefault();
+
   const cardData = {
     name: profileNameInput.value,
     link: profileImageInput.value,
   };
+
   createCard(cardData);
+
   closePopup(profileAddModal);
+
   profileAddForm.reset();
   addFormValidator.resetValidation();
 }
+
 
 function createCard(cardData) {
   const card = new Card(cardData, handleCardClick);
   const cardElement = card.getView();
 
 
-  cardListEl.prepend(cardElement);
+  cardList.addItem(cardElement);
 }
 
 function handleCardClick(link, name) {
@@ -107,7 +111,7 @@ function handleCardClick(link, name) {
 
 profileEditBtn.addEventListener("click", () => {
   openPopup(profileEditModal);
-  profileTitleInput.value = profileTitle.textContent;
+  profileTitleInput.value = userInfo.getUserInfo().name;
   profileDescriptionInput.value = profileDescription.textContent;
 });
 
@@ -119,7 +123,7 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 initialCards.forEach((cardData) => {
-  createCard(cardData);
+  Section.addItem(createCard(cardData));
 });
 
 const popups = [profileEditModal, profileAddModal, previewImageModal];
@@ -129,7 +133,7 @@ const userInfo = new UserInfo({
   jobSelector: '.user-info__job'
 });
 
-popups.forEach((modal) => {
+Popup.forEach((modal) => {
   modal.addEventListener("click", (e) => {
     if (
       e.target.classList.contains("modal") ||
