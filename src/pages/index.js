@@ -124,6 +124,11 @@ initialCards.forEach((cardData) => {
 
 const popups = [profileEditModal, profileAddModal, previewImageModal];
 
+const userInfo = new UserInfo({
+  nameSelector: '.user-info__name',
+  jobSelector: '.user-info__job'
+});
+
 popups.forEach((modal) => {
   modal.addEventListener("click", (e) => {
     if (
