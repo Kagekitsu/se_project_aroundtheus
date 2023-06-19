@@ -1,6 +1,6 @@
 import Popup from './Popup.js';
 
-class PopupWithForm extends Popup {
+export default class PopupWithForm extends Popup {
   constructor(popupSelector, { handleFormSubmit }) {
     super(popupSelector);
     this._formSubmitHandler = handleFormSubmit;
@@ -30,12 +30,4 @@ class PopupWithForm extends Popup {
   }
 }
 
-const popupWithForm = new PopupWithForm('#profile-add-modal', {
-  handleFormSubmit: (formValues) => {
-    userInfo.setUserInfo(formValues);
-  }
-});
-
 popupWithForm.setEventListeners();
-popupWithForm.open();
-popupWithForm.close();

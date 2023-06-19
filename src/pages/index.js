@@ -1,7 +1,10 @@
+import Popup from '../components/Popup.js';
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import { openPopup, closePopup } from "../utils/utils.js";
-import '../pages/index.css'
+import '../pages/index.css';
+import PopupWithForm from '../components/PopupWithForm.js';
+
 
 const initialCards = [
   {
@@ -55,6 +58,11 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 const popupImage = previewImageModal.querySelector(".modal__image");
 const popupCaption = previewImageModal.querySelector(".modal__caption");
 const previewImgCloseBtn = previewImageModal.querySelector(".modal__close");
+const popupWithForm = new PopupWithForm('#profile-add-modal', {
+  handleFormSubmit: (formValues) => {
+    userInfo.setUserInfo(formValues);
+  }
+});
 
 const validationSettings = {
   inputSelector: ".modal__input",
@@ -72,8 +80,9 @@ addFormValidator.enableValidation();
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
-  profileDescription.textContent = profileDescriptionInput.value;
-  Popup(profileEditModal);
+  pprofileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value
+  popupWithForm.close();
 }
 
 function handleProfileAddSubmit(e) {
@@ -110,16 +119,23 @@ function handleCardClick(link, name) {
 
 
 profileEditBtn.addEventListener("click", () => {
-  openPopup(profileEditModal);
-  profileTitleInput.value = userInfo.getUserInfo().name;
-  profileDescriptionInput.value = profileDescription.textContent;
+  popup.open();
+  const {name, description } = userInfo.getUserInfo();
+  profileTitleInput.value = userName;
 });
 
 profileAddBtn.addEventListener("click", () => {
   openPopup(profileAddModal);
 });
 
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+profileEditForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  popupWithForm.setSubmitHandler((formValues) => {
+    handleProfileEditSubmit(formValues);
+  });
+  popupWithForm.open();
+});
+
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 initialCards.forEach((cardData) => {
@@ -127,19 +143,11 @@ initialCards.forEach((cardData) => {
 });
 
 const popups = [profileEditModal, profileAddModal, previewImageModal];
+popups.forEach((modal) => {
+  const popup = new Popup(modal);
+});
 
 const userInfo = new UserInfo({
   nameSelector: '.user-info__name',
   jobSelector: '.user-info__job'
-});
-
-Popup.forEach((modal) => {
-  modal.addEventListener("click", (e) => {
-    if (
-      e.target.classList.contains("modal") ||
-      e.target.classList.contains("modal__close")
-    ) {
-      closePopup(modal);
-    }
-  });
 });
