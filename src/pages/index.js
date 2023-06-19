@@ -1,4 +1,4 @@
-import Popup from '../components/Popup.js';
+
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import { openPopup, closePopup } from "../utils/utils.js";
@@ -78,10 +78,16 @@ const addFormValidator = new FormValidator(validationSettings, profileAddForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
+const cardList = {
+  addItem: (cardElement) => {
+    cardListEl.append(cardElement);
+  },
+};
+
 function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value
+  profileDescription.textContent = profileDescriptionInput.value;
   popupWithForm.close();
 }
 
@@ -101,13 +107,10 @@ function handleProfileAddSubmit(e) {
   addFormValidator.resetValidation();
 }
 
-
 function createCard(cardData) {
   const card = new Card(cardData, handleCardClick);
   const cardElement = card.getView();
-
-
-  cardList.prepend(cardElement);
+  cardList.addItem(cardElement);
 }
 
 function handleCardClick(link, name) {
@@ -117,11 +120,11 @@ function handleCardClick(link, name) {
   popupCaption.textContent = name;
 }
 
-
 profileEditBtn.addEventListener("click", () => {
   popup.open();
-  const {name, description } = userInfo.getUserInfo();
-  profileTitleInput.value = userName;
+  const { name, description } = userInfo.getUserInfo();
+  profileTitleInput.value = name;
+  profileDescriptionInput.value = description;
 });
 
 profileAddBtn.addEventListener("click", () => {
@@ -151,3 +154,4 @@ const userInfo = new UserInfo({
   nameSelector: '.user-info__name',
   jobSelector: '.user-info__job'
 });
+
