@@ -80,7 +80,7 @@ addFormValidator.enableValidation();
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
-  pprofileTitle.textContent = profileTitleInput.value;
+  profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value
   popupWithForm.close();
 }
@@ -107,7 +107,7 @@ function createCard(cardData) {
   const cardElement = card.getView();
 
 
-  cardList.addItem(cardElement);
+  cardList.prepend(cardElement);
 }
 
 function handleCardClick(link, name) {
