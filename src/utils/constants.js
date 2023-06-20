@@ -35,8 +35,8 @@ export const initialCards = [
   export const profileTitleInput = document.querySelector("#profile-title-input");
   export const cardListEl = ".cards__list";
   export const previewImageModal = document.querySelector("#preview-image-modal");
-  export const inputSelector = '.modal__input'
-
+  export const inputSelector = '.modal__input';
+  
   export const validationSettings = {
     inputSelector: ".modal__input",
     submitButtonSelector: ".modal__button",
@@ -44,5 +44,4 @@ export const initialCards = [
     inputErrorClass: "modal__input_type_error",
     errorClass: "modal__error_visible",
   };
-  
 

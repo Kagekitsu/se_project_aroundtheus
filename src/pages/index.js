@@ -82,6 +82,8 @@ profileAddBtn.addEventListener('click', () => {
   newCardPopup.open();
 })
 
+newCardPopup.setEventListeners();
+
 /* -------------------------------------------------------------------------- */
 /*                                Card Function                               */
 /* -------------------------------------------------------------------------- */
@@ -99,3 +101,5 @@ function submitCard({ title, url }) {
   cardListSection.prependItem(newCard);
   newCardPopup.close();
 }
+
+previewImagePopup.setEventListeners();
