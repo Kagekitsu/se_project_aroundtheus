@@ -25,7 +25,7 @@ import {
 /* -------------------------------------------------------------------------- */
 
 const editFormValidator = new FormValidator(validationSettings, profileEditModal);
-const addFormValidator = new FormValidator(validationSettings, profileAddMOdal);
+const addFormValidator = new FormValidator(validationSettings, profileAddModal);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
