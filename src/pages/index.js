@@ -38,9 +38,9 @@ const userInfo = new UserInfo({
   jobSelector: '.profile__description'
 });
 
-const editProfilePopup = new PopupWithForm(profileEditModal, (elementObject) => {
-  userInfo.setUserInfo(elementObject.name, elementObject.description);
-  editProfilePopup.close()
+const editProfilePopup = new PopupWithForm(profileEditModal, ({ name, description }) => {
+  userInfo.setUserInfo({ name, job: description });
+  editProfilePopup.close();
 });
 
 profileEditBtn.addEventListener('click', openProfilePopup);
@@ -82,8 +82,6 @@ profileAddBtn.addEventListener('click', () => {
   newCardPopup.open();
 })
 
-newCardPopup.setEventListeners();
-
 /* -------------------------------------------------------------------------- */
 /*                                Card Function                               */
 /* -------------------------------------------------------------------------- */
@@ -95,8 +93,8 @@ function createCard ({ name, link }) {
   return cardElement.generateCard();
 } 
 
-function submitCard({ name, link }) {
-  const newCardData = { name, link };
+function submitCard({ title, url }) {
+  const newCardData = { name: title, link: url };
   const newCard = createCard(newCardData);
   cardListSection.prependItem(newCard);
   newCardPopup.close();
