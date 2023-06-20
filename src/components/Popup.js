@@ -23,7 +23,7 @@ export default class Popup {
   }
 
   _closeClick(e) {
-    if (e.target.classList.contains('modal_opened') || e.target.classList.contains('modal__close-button')) {
+    if (e.target.classList.contains('modal_opened') || e.target.classList.contains('modal__close')) {
       this.close();
     }
   }
