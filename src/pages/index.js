@@ -46,9 +46,9 @@ const editProfilePopup = new PopupWithForm(profileEditModal, (elementObject) => 
 profileEditBtn.addEventListener('click', openProfilePopup);
 
 function openProfilePopup() {
-  const { profileName, description } = userInfo.getUserInfo();
-  profileTitleInput.value = profileName;
-  profileDescriptionInput.value = description;
+  const { name, job } = userInfo.getUserInfo();
+  profileTitleInput.value = name;
+  profileDescriptionInput.value = job;
   editFormValidator._toggleButtonState();
   editProfilePopup.open();
 }
@@ -95,8 +95,8 @@ function createCard ({ name, link }) {
   return cardElement.generateCard();
 } 
 
-function submitCard({ title, url }) {
-  const newCardData = { name: title, link: url };
+function submitCard({ name, link }) {
+  const newCardData = { name, link };
   const newCard = createCard(newCardData);
   cardListSection.prependItem(newCard);
   newCardPopup.close();
