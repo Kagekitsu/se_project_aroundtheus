@@ -49,7 +49,7 @@ function openProfilePopup() {
   const { name, job } = userInfo.getUserInfo();
   profileTitleInput.value = name;
   profileDescriptionInput.value = job;
-  editFormValidator._toggleButtonState();
+  editFormValidator.toggleButtonState();
   editProfilePopup.open();
 }
 
@@ -78,7 +78,7 @@ const newCardPopup = new PopupWithForm(profileAddModal, submitCard);
 const previewImagePopup = new PopupWithImage(previewImageModal);
 
 profileAddBtn.addEventListener('click', () => {
-  addFormValidator._toggleButtonState();
+  addFormValidator.toggleButtonState();
   newCardPopup.open();
 })
 
@@ -101,5 +101,3 @@ function submitCard({ name, link }) {
   cardListSection.prependItem(newCard);
   newCardPopup.close();
 }
-
-previewImagePopup.setEventListeners();
