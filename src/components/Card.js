@@ -2,7 +2,7 @@ export default class Card {
   constructor(cardData, cardSelector, handleCardClick) {
     this._name = cardData.name;
     this._link = cardData.link;
-    this._cardDelector = cardSelector;
+    this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
   }
 
@@ -31,20 +31,20 @@ export default class Card {
       this._deleteCard();
     });
 
-    const cardImage = this._element.querySelector(".card__image");
+    const cardImage = this._cardElement.querySelector(".card__image");
     cardImage.addEventListener("click", () => {
       this._handleCardClick({ name: this._name, link: this._link }); 
     });
   }
 
   generateCard() {
-    this._element = this._getTemplate();
+    this._cardElement = this._getTemplate();
     this._setEventListeners();
     this._cardElement.querySelector(".card__image").alt = this._name;
     this._cardElement.querySelector(".card__image").src = this._link;
     this._cardElement.querySelector(".card__title").textContent = this._name;
 
-    return this._element;
+    return this._cardElement;
   }
 }
 

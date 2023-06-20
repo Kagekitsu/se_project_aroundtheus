@@ -33,8 +33,9 @@ export const initialCards = [
   export const profileDescription = document.querySelector(".profile__description");
   export const profileDescriptionInput = document.querySelector("#profile-description-input");
   export const profileTitleInput = document.querySelector("#profile-title-input");
-  export const cardListEl = document.querySelector(".cards__list");
+  export const cardListEl = ".cards__list";
   export const previewImageModal = document.querySelector("#preview-image-modal");
+  export const inputSelector = '.modal__input'
 
   export const validationSettings = {
     inputSelector: ".modal__input",
