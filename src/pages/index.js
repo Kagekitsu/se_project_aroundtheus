@@ -38,8 +38,8 @@ const userInfo = new UserInfo({
   jobSelector: '.profile__description'
 });
 
-const editProfilePopup = new PopupWithForm(profileEditModal, ({ name, description }) => {
-  userInfo.setUserInfo({ name, job: description });
+const editProfilePopup = new PopupWithForm(profileEditModal, ({ title, description }) => {
+  userInfo.setUserInfo({ title, job: description });
   editProfilePopup.close();
 });
 
