@@ -78,11 +78,13 @@ cardListSection.renderItems();
 
 const newCardPopup = new PopupWithForm(profileAddModal, submitCard);
 const previewImagePopup = new PopupWithImage(previewImageModal);
+previewImagePopup.setEventListeners();
 
 profileAddBtn.addEventListener('click', () => {
   addFormValidator.toggleButtonState();
   newCardPopup.open();
 })
+
  newCardPopup.setEventListeners();
 
 /* -------------------------------------------------------------------------- */
