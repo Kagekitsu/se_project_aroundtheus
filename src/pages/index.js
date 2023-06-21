@@ -83,7 +83,7 @@ profileAddBtn.addEventListener('click', () => {
   addFormValidator.toggleButtonState();
   newCardPopup.open();
 })
-newCardPopup.setEventListeners();
+ newCardPopup.setEventListeners();
 
 /* -------------------------------------------------------------------------- */
 /*                                Card Function                               */
