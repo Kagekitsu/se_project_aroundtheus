@@ -53,6 +53,8 @@ function openProfilePopup() {
   editProfilePopup.open();
 }
 
+editProfilePopup.setEventListeners();
+
 /* -------------------------------------------------------------------------- */
 /*                                Section Class                               */
 /* -------------------------------------------------------------------------- */
@@ -81,6 +83,7 @@ profileAddBtn.addEventListener('click', () => {
   addFormValidator.toggleButtonState();
   newCardPopup.open();
 })
+newCardPopup.setEventListeners();
 
 /* -------------------------------------------------------------------------- */
 /*                                Card Function                               */

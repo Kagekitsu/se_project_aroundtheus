@@ -17,12 +17,12 @@ export default class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    super.setEventListeners();
+    console.log('hey')
     this._popupForm.addEventListener('submit', () => {
       const inputValues = this._getInputValues();
-      console.log(inputValues)
       this._handleFormSubmit(inputValues);
     });
+    super.setEventListeners();
   }
 
   close() {
