@@ -12,10 +12,8 @@ import {
   profileAddModal,
   profileEditBtn,
   profileAddBtn,
-  profileTitle,
   profileDescriptionInput,
   profileTitleInput,
-  profileDescription,
   cardListEl,
   previewImageModal,
 } from '../utils/constants.js';
