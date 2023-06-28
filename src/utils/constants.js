@@ -36,6 +36,20 @@ export const initialCards = [
   export const cardListEl = ".cards__list";
   export const previewImageModal = document.querySelector("#preview-image-modal");
   export const inputSelector = '.modal__input';
+  export const submitButtonEditProfileInfo = document.querySelector(
+    "#modal-edit-profile-button"
+  );
+  export const submitButtonAddNewCard = document.querySelector(
+    "#modal-add-card-button"
+  );
+  
+  export const submitButtonChangeAvatar = document.querySelector(
+    "#modal-avatar-image-save"
+  );
+  
+  export const submitButtonDeleteCard = document.querySelector(
+    "#modal-verify-delete-card-button"
+  );
   
   export const validationSettings = {
     inputSelector: ".modal__input",
