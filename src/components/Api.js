@@ -71,5 +71,40 @@ export default class Api {
         console.log("Finish adding cards from server");
       });
     }
+
+    deleteCardRequest(cardId) {
+      return fetch(`${this._baseUrl}/cards/${cardId}`, {
+        method: "DELETE",
+        headers: this._headers,
+      }).finally(() => {
+        console.log("Done deleting card");
+      });
+    }
+
+    likesCountAdd(cardId) {
+      return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        method: "PUT",
+        headers: this._headers,
+      })
+        .then((result) => {
+          return result;
+        })
+        .finally(() => {
+          console.log("Done adding like");
+        });
+    }
+  
+    likesCountRemove(cardId) {
+      return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        method: "DELETE",
+        headers: this._headers,
+      })
+        .then((result) => {
+          return result;
+        })
+        .finally(() => {
+          console.log("Done deleting like");
+        });
+    }
   }
   

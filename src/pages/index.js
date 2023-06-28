@@ -47,6 +47,11 @@ api.addNewCard()
   console.log(test)
 })
 
+api.deleteCardRequest()
+.then((cardId) => {
+  console.log(cardId)
+})
+
 
 /* -------------------------------------------------------------------------- */
 /*                               Form Validator                               */
