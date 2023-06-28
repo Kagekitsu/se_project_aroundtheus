@@ -27,32 +27,6 @@ const api = new Api({
   }
 });
 
-api.getInitialCards()
-.then((cards) => {
-  console.log(cards)
-})
-
-api.getUserInfo()
-.then((info) => {
-  console.log(info)
-})
-
-api.editProfileInfo()
-.then((response) => {
-  console.log(response)
-})
-
-api.addNewCard()
-.then((test) => {
-  console.log(test)
-})
-
-api.deleteCardRequest()
-.then((cardId) => {
-  console.log(cardId)
-})
-
-
 /* -------------------------------------------------------------------------- */
 /*                               Form Validator                               */
 /* -------------------------------------------------------------------------- */
