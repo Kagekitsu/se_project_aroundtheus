@@ -32,6 +32,10 @@ api.getInitialCards()
   console.log(cards)
 })
 
+api.getUserInfo()
+.then((then) => {
+  console.log(info)
+})
 
 
 /* -------------------------------------------------------------------------- */
