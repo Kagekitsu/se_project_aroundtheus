@@ -121,6 +121,47 @@
         </form>
       </div>
     </div>
+    <div class="modal card-delete-verify">
+      <dic class="modal__container">
+        <form class="modal__form card-delete-container">
+          <button class="modal__close" type="button"></button>
+          <h3 class="modal__title" id="modal-card-delete-verify-title">
+            Are you sure?
+          </h3>
+          <button
+            class="modal__button"
+            id="modal-verify-delete-card-button"
+            type="button"
+          >
+            Yes
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="modal avatar__modal">
+      <div class="modal__container">
+        <button class="modal__exit" type="button"></button>
+        <h3 class="modal__title">Change profile picture</h3>
+        <form class="modal__form avatar__image-input" id="avatar-form">
+          <input
+            id="modal-avatar-url"
+            class="modal__input"
+            name="avatar"
+            type="url"
+            placeholder="Image link"
+            required
+          />
+          <span class="modal-avatar-url-error"></span>
+          <button
+            class="modal__button"
+            id="modal-avatar-image-save"
+            type="submit"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
     <div class="modal" id="preview-image-modal">
       <div class="modal__container modal__container_type_preview">
         <button class="modal__close" id="preview-image-modal-close" type="button"></button>

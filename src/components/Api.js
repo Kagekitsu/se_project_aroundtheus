@@ -37,5 +37,39 @@ export default class Api {
           console.log("Done with user info");
         });
     }
+
+    editProfileInfo({ name, about }) {
+      return fetch(`${this._baseUrl}/users/me`, {
+        method: "PATCH",
+        headers: this._headers,
+        body: JSON.stringify({
+          name,
+          about
+        })
+      })
+      .then((response) => {
+        return response;
+      })
+      .finally(() => {
+        console.log("Finish sending info to server");
+      });
+    }
+
+    addNewCard({ name, link }) {
+      return fetch(`${this._baseUrl}/cards`, {
+        method: "POST",
+        headers: this._headers,
+        body: JSON.stringify({
+          name,
+          link
+        })
+      })
+      .then((response) => {
+        return response;
+      })
+      .finally(() => {
+        console.log("Finish adding cards from server");
+      });
+    }
   }
   

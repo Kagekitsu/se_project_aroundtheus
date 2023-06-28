@@ -22,7 +22,7 @@ import Api from '../components/Api.js';
 const api = new Api({
   baseUrl: 'https://around.nomoreparties.co/v1/cohort-3-en',
   headers: {
-    Authorization: 'd8b9199f-b9d7-4b7f-ad09-c5597d55941e',
+    authorization: 'd8b9199f-b9d7-4b7f-ad09-c5597d55941e',
     "Content-Type": "application/json"
   }
 });
@@ -33,8 +33,18 @@ api.getInitialCards()
 })
 
 api.getUserInfo()
-.then((then) => {
+.then((info) => {
   console.log(info)
+})
+
+api.editProfileInfo()
+.then((response) => {
+  console.log(response)
+})
+
+api.addNewCard()
+.then((test) => {
+  console.log(test)
 })
 
 
