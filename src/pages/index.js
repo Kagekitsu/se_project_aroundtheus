@@ -17,14 +17,22 @@ import {
   cardListEl,
   previewImageModal,
 } from '../utils/constants.js';
+import Api from '../components/Api.js';
 
 const api = new Api({
   baseUrl: 'https://around.nomoreparties.co/v1/cohort-3-en',
   headers: {
-    authorization: 'd8b9199f-b9d7-4b7f-ad09-c5597d55941e',
+    Authorization: 'd8b9199f-b9d7-4b7f-ad09-c5597d55941e',
     "Content-Type": "application/json"
   }
-}); 
+});
+
+api.getInitialCards()
+.then((cards) => {
+  console.log(cards)
+})
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                               Form Validator                               */
