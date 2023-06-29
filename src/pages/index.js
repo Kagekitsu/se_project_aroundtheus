@@ -28,6 +28,8 @@ import {
 
 import Api from '../components/Api.js';
 
+fdfsdfsdf
+
 let userId;
 let userInfo;
 let cardList;
