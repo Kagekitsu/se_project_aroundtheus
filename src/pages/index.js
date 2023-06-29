@@ -48,7 +48,7 @@ const renderCard = (item) => {
     handleCardClick,
     userId,
     handleCardLike,
-    cardTrashBtnVerify,
+    cardTrashButtonVerify,
     handleDeleteCard
   );
   const cardElement = addNewCard.generateCard();
