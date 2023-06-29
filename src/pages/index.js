@@ -26,7 +26,7 @@ import {
   initialCards
 } from '../utils/constants.js'
 
-import Api from '../components/Api.js';
+import api from '../components/Api.js';
 
 
 let userId;
