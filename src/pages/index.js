@@ -28,7 +28,6 @@ import {
 
 import Api from '../components/Api.js';
 
-fdfsdfsdfvdsfdsfadsfadsv adsgfadsvadsv avadsfvadsv adsfvadsvadsv avasdvasdv avdas
 
 let userId;
 let userInfo;
