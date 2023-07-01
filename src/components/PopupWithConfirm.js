@@ -1,51 +1,34 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithConfirmation extends Popup {
-  constructor(popupSelector, loadingButtonText = "Saving...") {
-    super(popupSelector);
-    this._confirmButton = this._popupElement.querySelector(".modal__close");
-    this._confirmButtonText = this._confirmButton.textContent;
-    this._confirmDeleteButton = this._popupElement.querySelector(
-      ".modal__delete-button"
-    );
-    this._submitButton = this._popupElement.querySelector(
-      ".modal__delete-button"
-    );
-    this._buttonText = this._submitButton.textContent;
-    this._loadingButtonText = loadingButtonText;
-  }
-
-  setConfirmHandler(handler) {
-    this._confirmHandler = handler;
-    this._confirmButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      this._confirmHandler();
-    });
-    this._confirmDeleteButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      this._confirmHandler();
-    });
-  }
-
-  close() {
-    super.close();
-    this._confirmButton.removeEventListener("click", this._confirmHandler);
-    this._confirmDeleteButton.removeEventListener(
-      "click",
-      this._confirmHandler
-    );
+  constructor({ popupSelector, loadingText }) {
+    super({ popupSelector });
+    this._loadingText = loadingText;
+    this._popupForm = this._popupForm.querySelector('.modal__form');
+    this._confirmDeleteButton = this._popupElement.querySelector(".modal__delete-button");
+    this._submitButton = this._popupElement.querySelector('.modal__button');
+    this._submitButtonText = this._submitButtonText;
   }
 
   renderLoading(isLoading) {
-    console.log("renderLoading called with: ", isLoading);
     if (isLoading) {
-      this._submitButton.textContent = this._loadingButtonText;
+      this._confirmDeleteButton.textContent = this._loadingText;
     } else {
-      this._submitButton.textContent = this._buttonText;
+      this._confirmDeleteButton.textContent = this._submitButtonText;
     }
-    console.log(
-      "Button text after renderLoading: ",
-      this._submitButton.textContent
-    );
+  }
+
+  open() {
+    this._popupForm.addEventListener('submit', this._handleSubmit);
+    super.open();
+  }
+
+  close() {
+    this._popupForm.addEventListener('submit', this._handleSubmit);
+    super.close();
+  }
+
+  setSubmitAction(action) {
+    this._handleSubmit = action;
   }
 }

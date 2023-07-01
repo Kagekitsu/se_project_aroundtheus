@@ -23,7 +23,6 @@ import {
   avatarForm,
   avatarUrlInput,
   addModalCreateButton,
-  initialCards
 } from '../utils/constants.js'
 
 import api from '../components/Api.js';
@@ -33,23 +32,23 @@ let userId;
 let userInfo;
 let cardList;
 
+const nameSelector = document.querySelector('.profile__title');
+const jobSelector = document.querySelector('.profile__description');
+const avatarSelector = document.querySelector('.profile__image')
+
 /* -------------------------------------------------------------------------- */
 /*                                API                                         */
 /* -------------------------------------------------------------------------- */
 
 api
 .loadData()
-.then(({ userInfo: userInfoData, initialCards }) => {
-  userInfo = new UserInfo({
-    nameSelector: '.profile__title',
-    jobSelector: '.profile__description',
-    avatarSelector: '.profile__image'
-  })
+.then(({ userData, initialCards}) => {
+  console.log(initialCards)
 });
 
-userInfo.setUserInfo(userInfoData.name, userInfoData.about);
-userInfo.setAvatar(userInfoData.avatar);
-userId = userInfoData._id;
+userInfo.setUserInfo(userData.name, userData.about);
+userInfo.setAvatar(userData.avatar);
+userId = userData._id;
 
 /* -------------------------------------------------------------------------- */
 /*                                  Card List                                 */
@@ -155,11 +154,10 @@ function handleCardDelete(cardId) {
   console.trace(`handleCardDelete called with ID: ${cardId}`);
   console.log("cardId", cardId);
 
-  // Open the confirmation popup before deleting the card
   deleteCardPopup.open(cardId);
 
   deleteCardPopup.setConfirmHandler(() => {
-    // Show loading
+  
     deleteCardPopup.renderLoading(true);
 
     api
@@ -173,7 +171,6 @@ function handleCardDelete(cardId) {
         console.error(`Failed to delete card: ${error}`);
       })
       .finally(() => {
-        // Hide loading
         deleteCardPopup.renderLoading(false);
       });
   });
