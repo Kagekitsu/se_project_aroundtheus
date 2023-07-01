@@ -17,13 +17,13 @@ class Api {
       );
     }
   
-    getInitialCards() {
+    getCardsList() {
       return fetch(`${this._baseUrl}/cards`, { headers: this._headers }).then(
         this._checkResponse
       );
     }
   
-    editProfile(name, about) {
+    updateUserInfo(name, about) {
       return fetch(`${this._baseUrl}/users/me`, {
         method: "PATCH",
         headers: this._headers,
@@ -49,18 +49,25 @@ class Api {
       return fetch(`${this._baseUrl}/cards/${cardId}`, {
         method: "DELETE",
         headers: this._headers,
-      }).then(this._checkResponse);
+      }).then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`).catch((err) => {
+          console.error(err);
+        });
+      });
     }
   
     addLike(cardId) {
-      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
         method: "PUT",
         headers: this._headers,
       }).then(this._checkResponse);
     }
   
     removeLike(cardId) {
-      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
         method: "DELETE",
         headers: this._headers,
       }).then(this._checkResponse);
@@ -74,14 +81,6 @@ class Api {
           avatar: avatarLink,
         }),
       }).then(this._checkResponse);
-    }
-  
-    loadData() {
-      return Promise.all([this.getUserInfo(), this.getInitialCards()]).then(
-        ([userInfo, initialCards]) => {
-          return { userInfo, initialCards };
-        }
-      );
     }
   }
   

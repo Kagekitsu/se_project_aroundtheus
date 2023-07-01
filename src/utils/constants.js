@@ -26,24 +26,13 @@ export const initialCards = [
 ];
 
 export const avatarImageElement = document.querySelector(".profile__image");
-export const profileTitle = document.querySelector(".profile__title");
+export const profileTitleInput = document.querySelector("#profile-title-input");
 export const profileDescription = document.querySelector(".profile__description");
 export const profileEditButton = document.querySelector("#profile-edit-button");
-export const profileTitleInput = document.querySelector("#profile-title-input");
-export const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
-export const addNewCardButton = document.querySelector(".profile__add-button");
-export const cardListEl = document.querySelector(".cards__list");
-export const cardTitleInput = document.querySelector("#add-name-input");
-export const cardUrlInput = document.querySelector("#add-url-input");
-export const avatarEditButton = document.querySelector(".profile__image-edit");
-export const avatarModal = document.querySelector("#edit-avatar-modal");
-export const avatarModalCloseButton = document.querySelector(
-  "#edit-avatar-modal-close-button"
-);
-export const avatarForm = document.querySelector("#edit-avatar-form");
-export const avatarUrlInput = document.querySelector("#avatar-url-input");
-export const addModalCreateButton = document.getElementById(
-  "profile-create-button"
-);
+export const editImageButton = document.querySelector('edit-avatar-save-button');
+export const cardDelteModal = document.querySelector('#delete-modal');
+export const selectors = {
+  cardSection: ".cards__list",
+  cardTemplate: "#card-template",
+  previewPopup: "#preview-image-modal",
+};

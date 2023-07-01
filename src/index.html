@@ -8,6 +8,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0"
     />
     <title>Around The U.S.</title>
+    <link rel="shorcut icon" href="./images/favicon.ico">
   </head>
   <body class="page">
     <div class="page__content">
@@ -25,11 +26,6 @@
           alt="Avatar" 
           class="profile__image" 
           />
-          <img
-              src="<%=require('./images/edit_button.svg')%>"
-              alt="hover-image"
-              class="profile__image-edit"
-            />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -179,6 +175,7 @@
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
+          <span class="card__like-amount">0</span>
         </div>
       </li>
     </template>
