@@ -16,7 +16,7 @@ import {
  selectors,
 } from '../utils/constants.js';
 
-import api from '../components/Api.js';
+import api from '../utils/Api.js';
 
 /* -------------------------------------------------------------------------- */
 /*                               Popup w/ Image                               */
@@ -151,7 +151,6 @@ Promise.all([api.getUserInfo(), api.getCardList()])
           console.error(err);
         })
         .finally(() => {
-          // Hide the loading state
           newCardPopup.renderLoading(false);
         });
     },
