@@ -6,7 +6,7 @@ class Section {
   }
 
   renderItems() {
-    this._items.reverse().forEach((item) => {
+    this._items.forEach((item) => {
       this._renderer(item);
     });
   }
@@ -14,14 +14,9 @@ class Section {
   addItem(element) {
     this._container.prepend(element);
   }
-  removeItem(itemId) {
-    console.log(`Trying to remove item with id: ${itemId}`);
-    const itemElement = this._container.querySelector(`[data-id="${itemId}"]`);
-    console.log(`Found item element: `, itemElement);
-    if (itemElement) {
-      itemElement.remove();
-      console.log(`Item with id: ${itemId} removed.`);
-    }
+  
+  prependItem(element) {
+    this._containerElement.prepend(element);
   }
 }
 export default Section;
