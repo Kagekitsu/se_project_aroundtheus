@@ -50,15 +50,7 @@ class Api {
       method: "DELETE",
       headers: this._headers,
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      .then(this._checkResponse);
   }
 
   addLike(cardId) {
@@ -86,12 +78,4 @@ class Api {
   }
 }
 
-const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
-  headers: {
-    authorization: "d8b9199f-b9d7-4b7f-ad09-c5597d55941e",
-    "Content-Type": "application/json",
-  },
-});
-
-export default api;
+export default Api;

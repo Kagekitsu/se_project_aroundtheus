@@ -25,14 +25,27 @@ export const initialCards = [
   },
 ];
 
-export const avatarImageElement = document.querySelector(".profile__image");
-export const profileTitleInput = document.querySelector("#profile-title-input");
-export const profileDescription = document.querySelector(".profile__description");
-export const profileEditButton = document.querySelector("#profile-edit-button");
-export const editImageButton = document.querySelector('edit-avatar-save-button');
-export const cardDelteModal = document.querySelector('#delete-modal');
-export const selectors = {
-  cardSection: ".cards__list",
-  cardTemplate: "#card-template",
-  previewPopup: "#preview-image-modal",
+export const profileEditModal = document.querySelector('#profile-edit-modal');
+export const cardModal = document.querySelector('#profile-add-modal');
+export const profileAvatarModal = document.querySelector('#edit-avatar-modal');
+export const deleteCardModal = document.querySelector('#delete-modal');
+export const profileEditBtn = profileEditModal.querySelector('#profile-edit-button');
+export const inputSelector = '.modal__input'
+export const addNewCardBtn = document.querySelector('.profile__add-button');
+export const profileTitleInput = document.querySelector('#profile-title-input');
+export const profileTitleDescription = document.querySelector('#profile-description-inpu');
+export const profileAvatarIcon = document.querySelector('.header__logo');
+export const profileAvatarDescription = document.querySelector('#profile-description-input');
+export const profileAvatarTitle = document.querySelector('#profile-title-input');
+export const cardTemplate = '#card-template';
+export const avatarIcon = document.querySelector('#profile-edit-button');
+export const cardListEl = document.querySelector('.cards__list');
+export const previewImageModal = document.querySelector('#preview-image-modal')
+
+export const settings = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button-inactive",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__input-error_active",
 };
