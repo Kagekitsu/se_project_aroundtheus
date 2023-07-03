@@ -1,23 +1,21 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, handleSubmit, loadingButtonText) {
+  constructor(popupSelector, handleSubmit) {
     super({ popupSelector });
-    this._popupForm = this._popupElement.querySelector('.modal__form');
-    this._inputList = this._popupElement.querySelectorAll('.modal__input')
     this._handleSubmit = handleSubmit;
-    this._formElement = this._popupElement.querySelector(".modal__form");
-    this._submitButton = this._formElement.querySelector(".modal__button");
-    this._submitButtonText = this._submitButtonText.textContent;
-    this._loadingText = loadingText;
+    this._popupForm = this._popupElement.querySelector('.modal__form');
   }
 
   _getInputValues() {
     const inputValues = {};
+    this._inputList = this._popupForm.querySelectorAll('.modal__input');
     this._inputList.forEach((input) => {
-      inputValues[input.name] = input.value;
+      if (input.value !== "") {
+        inputObject[input.name] = input.value;
+      }
     });
-    return inputValues;
+    return inputValues
   }
 
   _handleSubmit(e) {
@@ -25,22 +23,22 @@ export default class PopupWithForm extends Popup {
     this._handleSubmit(this._getInputValues());
   }
 
-  open() {
-    this._popupForm.addEventListener('submit', this._handleSubmit);
-    super.open();
-  }
-
   close() {
-    this._popupForm.removeEventListener('submit', this._handleSubmit);
-    this._formElement.reset();
     super.close();
+    this._popupForm.reset();
+    this._popupForm.removeEventListener('submit', this._handleSubmit);
   }
 
-  renderLoading(isLoading) {
+  renderLoading(isLoading, submitSave) {
     if (isLoading) {
-      this._submitButton.textContent = this._loadingText;
+      this._popupElement.querySelector('.modal__save-buton').textContent = 'Saving...';
     } else {
-      this._submitButton.textContent = this._submitButtonText;
+      this._popupElement.querySelector('.modal__save-buton').textContent = submitSave;
     }
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+    this._popupElement.addEventListener('submit', this._handleSubmit);
   }
 }
