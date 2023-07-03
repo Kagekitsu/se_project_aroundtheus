@@ -22,7 +22,7 @@ import api from '../utils/Api.js';
 /*                               Popup w/ Image                               */
 /* -------------------------------------------------------------------------- */
 
-const cardPreview = new PopupWithImage({ popupSelector: '#preview-image-modal'});
+const cardPreview = new PopupWithImage({ popupSelector: '#preview-image-modal' });
 cardPreview.setEventListeners();
 
 /* -------------------------------------------------------------------------- */
@@ -83,6 +83,7 @@ const renderCard = (data) => {
   const newCard = cardElement.getView();
   cardSection.addItem(newCard);
 };
+
 
 /* -------------------------------------------------------------------------- */
 /*                                 Delete Card                                */

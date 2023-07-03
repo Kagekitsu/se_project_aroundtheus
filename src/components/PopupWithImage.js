@@ -13,4 +13,12 @@ export default class PopupWithImage extends Popup{
         this._previewImageElement.src = link;
         super.open();
     }
+
+    setEventListeners() {
+        super.setEventListeners();
+        this._closeButton = document.querySelector('.modal__close');
+        this._closeButton.addEventListener('click', () => {
+            this.close();
+        })
+    }
 }

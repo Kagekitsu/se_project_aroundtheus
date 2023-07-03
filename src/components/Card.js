@@ -41,7 +41,6 @@ export default class Card {
       .classList.remove('card__like-button_active');
     }
   }
- 
   _setEventListeners() {
     this._cardElement
     .querySelector('.card__like-button')
@@ -67,13 +66,17 @@ export default class Card {
     this._element = null;
   }
 
+  toggleLikes() {
+    if (this.isLiked()) {
+      this._element.querySelector('.card__like-button').classList.toggle('.card__like-button_active');
+    }
+  }
+
   hanldeDeleteButtonIcon() {
     if (this._ownerId !== this._myId) {
       this._cardElement.querySelector('.card__delete-button').remove();
     }
   }
-
-
 
   _getTemplate() {
     const cardElement = document
