@@ -28,13 +28,6 @@ import {
 } from '../utils/constants';
 import Api from '../utils/Api';
 
-const api = new Api({
-  baseURL: "https://around.nomoreparties.co/v1/cohort-3-en",
-  headers: {
-    authorization: "d8b9199f-b9d7-4b7f-ad09-c5597d55941e",
-    "Content-Type": "application/json",
-  },
-});
 /* -------------------------------------------------------------------------- */
 /*                                  Instances                                 */
 /* -------------------------------------------------------------------------- */
@@ -66,7 +59,7 @@ deleteCardFormValidator.enableValidation();
 let userId;
 let cardList;
 
-Promise.all([api.getInitialCards(), api.getUserInfo()])
+Promise.all([Api.getInitialCards(), Api.getUserInfo()])
 .then(([initialCards, userData]) => {
   userId = userData._id;
   userDataInfo.setUserInfo(userData.name, userData.about);
@@ -99,7 +92,7 @@ function openProfilePopup() {
 
 function handleProfileFormSubmit({ name, about }) {
   editProfilePopup.setLoading(true);
-  api
+  Api
     .updateUserInfo(name, about)
     .then(() => {
       userInfo.setUserInfo(name, about);
@@ -126,7 +119,7 @@ profileAvatarIcon.addEventListener('click', () => {
 
 function handleProfileAvatarSubmit(url) {
   editAvatarPopup.setLoading(true);
-  api
+  Api
    .setUsereAvatar(url)
    .then((userData) => {
     userInfo.setProfileAvatar(userData.avatar);
@@ -145,7 +138,7 @@ function handleProfileAvatarSubmit(url) {
 /* -------------------------------------------------------------------------- */
 
 function handleSubmitCard({ title, url }) {
-  api
+  Api
    .addCard(title, url)
    .then((card) => {
     const newCard = createCard(card);
@@ -171,7 +164,7 @@ function createCard(data) {
     function handleCardDelete() {
       deleteImagePopup.setSubmitAction(() => {
         deleteImagePopup.setLoading(true);
-        api
+        Api
           .deleteCard(data._id)
           .then((res) => {
             newCard.remove(res._id);
@@ -187,7 +180,7 @@ function createCard(data) {
       deleteImagePopup.open(data._id);
     },
     function handleCardLikeClick(data) {
-      api
+      Api
         .changeLikeCardStatus(data._id, newCard.isLiked())
         .then((res) => {
           const likes = res.likes || [];
