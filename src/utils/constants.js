@@ -29,18 +29,19 @@ export const profileEditModal = document.querySelector('#profile-edit-modal');
 export const cardModal = document.querySelector('#profile-add-modal');
 export const profileAvatarModal = document.querySelector('#edit-avatar-modal');
 export const deleteCardModal = document.querySelector('#delete-modal');
-export const profileEditBtn = profileEditModal.querySelector('#profile-edit-button');
+export const profileEditButton = document.querySelector('#profile-edit-button');
 export const inputSelector = '.modal__input'
-export const addNewCardBtn = document.querySelector('.profile__add-button');
-export const profileTitleInput = document.querySelector('#profile-title-input');
-export const profileTitleDescription = document.querySelector('#profile-description-inpu');
-export const profileAvatarIcon = document.querySelector('.header__logo');
-export const profileAvatarDescription = document.querySelector('#profile-description-input');
-export const profileAvatarTitle = document.querySelector('#profile-title-input');
+export const profileTitle = document.querySelector('.profile__title');
+export const profileDescription = document.querySelector('.profile__description');
+export const profileAvatar = document.querySelector('.profile__image');
+export const profileDescriptionEl = document.querySelector('#profile-description-input');
+export const profileTitleEl = document.querySelector('#profile-title-input');
 export const cardTemplate = '#card-template';
-export const avatarIcon = document.querySelector('#profile-edit-button');
+export const addNewCardButton = document.querySelector('#profile-add-button');
+export const profileAvatarIcon = document.querySelector('#profile-edit-button');
 export const cardListEl = document.querySelector('.cards__list');
-export const previewImageModal = document.querySelector('#preview-image-modal')
+export const previewImageModal = document.querySelector('#preview-image-modal');
+
 
 export const settings = {
   inputSelector: ".modal__input",
