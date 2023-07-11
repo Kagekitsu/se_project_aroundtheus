@@ -1,4 +1,4 @@
-class Api {
+export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
@@ -8,35 +8,41 @@ class Api {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Error: ${res.status}`);
+    return Promise.reject(`Error ${res.status}`);
   }
 
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, { headers: this._headers }).then(
-      this._checkResponse
-    );
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "GET",
+      headers: this._headers,
+    }).then(this._checkResponse);
   }
 
-  getCardList() {
-    return fetch(`${this._baseUrl}/cards`, { headers: this._headers }).then(
-      this._checkResponse
-    );
+  getAppInfo() {
+    return Promise.all([this.getUserInfo(), this.initialCards()]);
   }
 
-  updateUserInfo(name, about) {
+  initialCards() {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "GET",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  editProfile({ name, description }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name,
-        about,
+        name: name,
+        about: description,
       }),
     }).then(this._checkResponse);
   }
 
-  addCard(name, link) {
+  addNewCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
-      method: "POST",
+      method: "post",
       headers: this._headers,
       body: JSON.stringify({
         name,
@@ -45,45 +51,39 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  deleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
-      method: "DELETE",
-      headers: this._headers,
-    })
-      .then(this._checkResponse);
-  }
-
-  addLike(cardId) {
+  cardLikes(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  removeLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+  deleteCard(cardID) {
+    return fetch(`${this._baseUrl}/cards/${cardID}`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  setUsereAvatar(avatarLink) {
+  addLike({ _id }) {
+    return fetch(`${this._baseUrl}/cards/likes/${_id}`, {
+      method: "PUT",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  removeLike({ _id }) {
+    return fetch(`${this._baseUrl}/cards/likes/${_id}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  updateProfilePicture(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        avatar: avatarLink,
-      }),
+      body: JSON.stringify(avatar),
     }).then(this._checkResponse);
   }
 }
-
-const api = new Api({
-  baseURL: "https://around.nomoreparties.co/v1/cohort-3-en",
-  headers: {
-    authorization: "d8b9199f-b9d7-4b7f-ad09-c5597d55941e",
-    "Content-Type": "application/json",
-  },
-});
-
-export default Api;
