@@ -43,6 +43,15 @@ const addNewCardPopup = new PopupWithForm(cardModal, handleSubmitCard);
 const deleteImagePopup = new PopupWithConfirm(deleteCardModal);
 const editAvatarPopup = new PopupWithForm(profileAvatarModal, handleProfileAvatarSubmit);
 
+const api = new Api({
+  baseURL: "https://around.nomoreparties.co/v1/cohort-3-en",
+  headers: {
+    authorization: "d8b9199f-b9d7-4b7f-ad09-c5597d55941e",
+    "Content-Type": "application/json",
+  },
+});
+
+
 /* -------------------------------------------------------------------------- */
 /*                               Form Validators                              */
 /* -------------------------------------------------------------------------- */
