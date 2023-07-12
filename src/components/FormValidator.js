@@ -1,14 +1,11 @@
 class FormValidator {
-  constructor(settings, formElement) {
+  constructor(formElement, settings) {
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
     this._form = formElement;
-    this._buttonElement = this._form.querySelector(this._submitButtonSelector);
-
-    this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
   }
 
   _showInputError(inputElement) {
@@ -75,12 +72,10 @@ class FormValidator {
   }
 
   enableValidation() {
-    this._form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
+    this._form.addEventListener("submit", (e) => {
+      e.preventDefault();
     });
-
     this._setEventListeners();
-    this.toggleButtonState();
   }
 }
 

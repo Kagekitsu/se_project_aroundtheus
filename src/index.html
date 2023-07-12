@@ -8,7 +8,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0"
     />
     <title>Around The U.S.</title>
-    <link rel="icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="./images/favicon.ico">
   </head>
   <body class="page">
     <div class="page__content">
@@ -128,13 +128,52 @@
         <p class="modal__caption"></p>
       </div>
     </div>
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="delete-modal-close-button"></button>
+        <h2 class="modal__heading">Are you sure?</h2>
+        <form class="modal__form">
+          <button class="modal__button modal__delete-button" id="modal-delete-btn" type="submit">
+            Yes
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="edit-avatar-modal-close-button"
+        ></button>
+        <h2 class="modal__heading">Change Profile Picture</h2>
+        <form class="modal__form" id="edit-avatar-form">
+          <input
+            class="modal__input modal__input_type_url"
+            type="url"
+            placeholder="Image URL"
+            name="avatar"
+            id="avatar-url-input"
+            required
+          />
+          <span class="modal__error" id="avatar-url-input-error"></span>
+          <button
+            class="modal__button modal__save-button"
+            id="edit-avatar-save-button"
+            type="submit"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
     <template id="card-template">
       <li class="card">
         <button type="button" class="card__delete-button"></button>
-        <img src="" class="card__image" alt="" />
+        <img src="#" class="card__image" alt="#" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
+          <span class="card__like-amount">0</span>
         </div>
       </li>
     </template>
