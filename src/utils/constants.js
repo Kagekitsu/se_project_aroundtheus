@@ -33,7 +33,7 @@
  const profileDescriptionEl = document.querySelector('#profile-description-input');
  const cardModal = document.querySelector('#profile-add-modal');
  const cardModalBtn = document.querySelector('#profile-add-button')
- const cardModalForm = cardModal.querySelector('#profile-add-form');
+ const cardModalForm = document.querySelector('#modal-add-form');
  const previewImageModal = document.querySelector('#preview-image-modal');
  const previewImageModalCloseBtn = previewImageModal.querySelector('.modal__close');
  const avatarForm = document.querySelector('#edit-avatar-form');

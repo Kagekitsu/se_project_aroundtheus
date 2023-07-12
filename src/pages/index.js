@@ -162,7 +162,7 @@ const editFormModal = new PopupWithForm('#profile-edit-modal', (inputValues) => 
 });
 editFormModal.setEventListeners();
 
-const addFormModal = new PopupWithForm('#profile-add-modal', (inputValues) => {
+const addFormModal = new PopupWithForm('#modal-add-form', (inputValues) => {
   addFormModal.renderLoading(true);
   api
     .addNewCard(inputValues)
