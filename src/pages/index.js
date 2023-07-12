@@ -107,7 +107,7 @@ function createCard(data) {
         api
           .deleteCard(cardId)
           .then(() => {
-            card.deleteClick();
+            card.deleteCard();
             deletePopup.close();
           })
           .catch((err) => {
