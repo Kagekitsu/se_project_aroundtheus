@@ -6,9 +6,6 @@ class FormValidator {
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
     this._form = formElement;
-    this._buttonElement = this._form.querySelector(this._submitButtonSelector);
-
-    this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
   }
 
   _showInputError(inputElement) {
@@ -78,9 +75,7 @@ class FormValidator {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-
     this._setEventListeners();
-    this.toggleButtonState();
   }
 }
 

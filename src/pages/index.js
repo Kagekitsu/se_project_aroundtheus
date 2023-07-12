@@ -17,7 +17,7 @@ import {
   cardModal,
   cardModalBtn,
   profileEditButton,
-  cardModalForm ,
+  cardModalForm,
   avatarForm,
 } from '../utils/constants';
 import Api from '../utils/Api';
@@ -71,6 +71,25 @@ api
 /*                                    Card                                    */
 /* -------------------------------------------------------------------------- */
 
+function deleteCard(card, cardId) {
+  deleteModal.open();
+  deleteModal.setSubmitAction(() => {
+    deleteModal.renderLoading(true);
+    api
+      .deleteCard(cardId)
+      .then(() => {
+        card.deleteCard();
+        deleteModal.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        deleteModal.renderLoading(false);
+      });
+  });
+}
+
 function createCard(data) {
   const card = new Card({
     data,
@@ -101,22 +120,7 @@ function createCard(data) {
       }
     },
     handleDeleteCard: (cardId) => {
-      deletePopup.open();
-      deletePopup.setSubmitAction(() => {
-        deletePopup.renderLoading(true);
-        api
-          .deleteCard(cardId)
-          .then(() => {
-            card.deleteCard();
-            deletePopup.close();
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-          .finally(() => {
-            deletePopup.renderLoading(false);
-          });
-      });
+      deleteCard(card, cardId);
     },
   });
   return card.generateCard();
@@ -128,9 +132,8 @@ function createCard(data) {
 
 const addFormValidator = new FormValidator(cardModalForm, settings);
 addFormValidator.enableValidation();
-console.log(cardModalForm);
 
-const profileFormValidator = new FormValidator( profileEditForm, settings);
+const profileFormValidator = new FormValidator(profileEditForm, settings);
 profileFormValidator.enableValidation();
 
 const avatarFormValidator = new FormValidator(avatarForm, settings);
@@ -176,7 +179,6 @@ const addFormModal = new PopupWithForm('#profile-add-modal', (inputValues) => {
     });
 });
 addFormModal.setEventListeners();
-
 
 const updateProfileForm = new PopupWithForm('#edit-avatar-modal', (inputValues) => {
   updateProfileForm.renderLoading(true);

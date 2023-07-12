@@ -39,6 +39,7 @@
  const avatarForm = document.querySelector('#edit-avatar-form');
 
  const settings = {
+  form: '.modal__form',
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__save-button-inactive",

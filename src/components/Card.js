@@ -88,7 +88,7 @@ export default class Card {
     this.cardTrashButton = this._element.querySelector(".card__delete-button");
     this.cardImage = this._element.querySelector(".card__image");
     const cardTitle = this._element.querySelector(".card__title");
-    this._cardLikes = this._element.querySelector(".card__likes-counter"); // Move tfore renderL)
+    this._cardLikes = this._element.querySelector(".card__likes-counter"); 
     this.cardImage.src = this._link;
     this.cardImage.alt = this._name;
     cardTitle.textContent = this._name;
