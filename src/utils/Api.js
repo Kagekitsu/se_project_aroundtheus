@@ -12,7 +12,7 @@ export default class Api {
   }
 
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return fetch(`https://around.nomoreparties.co/v1/cohort-3-en/users/me`, {
       method: "GET",
       headers: this._headers,
     }).then(this._checkResponse);
@@ -23,14 +23,14 @@ export default class Api {
   }
 
   initialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
+    return fetch(`https://around.nomoreparties.co/v1/cohort-3-en/cards`, {
       method: "GET",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
   editProfile({ name, description }) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return fetch(`https://around.nomoreparties.co/v1/cohort-3-en/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -41,7 +41,7 @@ export default class Api {
   }
 
   addNewCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return fetch(`https://around.nomoreparties.co/v1/cohort-3-en/cards`, {
       method: "post",
       headers: this._headers,
       body: JSON.stringify({
@@ -52,35 +52,35 @@ export default class Api {
   }
 
   cardLikes(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    return fetch(`https://around.nomoreparties.co/v1/cohort-3-en/cards/likes/${cardId}`, {
       method: "PUT",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
   deleteCard(cardID) {
-    return fetch(`${this._baseUrl}/cards/${cardID}`, {
+    return fetch(`https://around.nomoreparties.co/v1/cohort-3-en/cards/${cardID}`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
   addLike({ _id }) {
-    return fetch(`${this._baseUrl}/cards/likes/${_id}`, {
+    return fetch(`https://around.nomoreparties.co/v1/cohort-3-en/cards/likes/${_id}`, {
       method: "PUT",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
   removeLike({ _id }) {
-    return fetch(`${this._baseUrl}/cards/likes/${_id}`, {
+    return fetch(`https://around.nomoreparties.co/v1/cohort-3-en/cards/likes/${_id}`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
   updateProfilePicture(avatar) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
+    return fetch(`https://around.nomoreparties.co/v1/cohort-3-en/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(avatar),

@@ -26,8 +26,10 @@ export default class Card {
     const cardElement = document
       .querySelector(this._cardSelector)
       .content.firstElementChild.cloneNode(true);
+    this._cardLikes = cardElement.querySelector('.card__likes-counter');
     return cardElement;
   }
+  
 
   deleteClick() {
     this._element.remove();
@@ -86,13 +88,13 @@ export default class Card {
     this.cardTrashButton = this._element.querySelector(".card__delete-button");
     this.cardImage = this._element.querySelector(".card__image");
     const cardTitle = this._element.querySelector(".card__title");
+    this._cardLikes = this._element.querySelector(".card__likes-counter"); // Move tfore renderL)
     this.cardImage.src = this._link;
     this.cardImage.alt = this._name;
     cardTitle.textContent = this._name;
-    this._cardLikes = this._element.querySelector(".card__likes-counter");
-    this.renderLikes();
     this._setEventListeners();
     this._checkIdForDelete();
     return this._element;
   }
+  
 }
