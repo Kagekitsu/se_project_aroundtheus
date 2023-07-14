@@ -41,7 +41,7 @@
  const settings = {
   form: '.modal__form',
   inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__save-button",
+  submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__save-button-inactive",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__input-error_active",
