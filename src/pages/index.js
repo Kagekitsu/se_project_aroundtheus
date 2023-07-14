@@ -223,6 +223,3 @@ cardModalBtn.addEventListener("click", () => {
   addFormModal.open();
 });
 
-function closeProfileModal() {
-  editFormModal.close();
-}
