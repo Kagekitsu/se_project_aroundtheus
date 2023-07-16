@@ -149,7 +149,7 @@ const editFormModal = new PopupWithForm('#profile-edit-modal', (inputValues) => 
     .then(() => {
       userInfoEl.setUserInfo({
         name: inputValues.name,
-        job: inputValues.job,
+        job: inputValues.description,
       });
       editFormModal.close();
     })
