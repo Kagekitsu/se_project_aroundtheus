@@ -143,7 +143,7 @@ const deleteModal = new PopupWithConfirm('#delete-modal');
 deleteModal.setEventListeners();
 
 const editFormModal = new PopupWithForm('#profile-edit-modal', (inputValues) => {
-  // editFormModal.renderLoading(true);
+  editFormModal.renderLoading(true);
   api
     .editProfile(inputValues)
     .then(() => {
@@ -163,7 +163,7 @@ const editFormModal = new PopupWithForm('#profile-edit-modal', (inputValues) => 
 editFormModal.setEventListeners();
 
 const addFormModal = new PopupWithForm('#profile-add-modal', (inputValues) => {
-  // addFormModal.renderLoading(true);
+  addFormModal.renderLoading(true);
   api
     .addNewCard(inputValues)
     .then((data) => {
@@ -172,7 +172,7 @@ const addFormModal = new PopupWithForm('#profile-add-modal', (inputValues) => {
       addFormModal.close();
     })
     .catch((err) => {
-      console.err(err);
+      console.log(err);
     })
     .finally(() => {
       addFormModal.renderLoading(false);
