@@ -78,7 +78,7 @@ function deleteCard(card, cardId) {
     api
       .deleteCard(cardId)
       .then(() => {
-        card.deleteCard();
+        card.handleDeleteCard();
         deleteModal.close();
       })
       .catch((err) => {
