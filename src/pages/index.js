@@ -49,7 +49,6 @@ api
     currentUserId = userData._id;
     userInfoEl.setUserInfo({ name: userData.name, job: userData.about });
     userInfoEl.setAvatarInfo(userData.avatar);
-
     sectionEl = new Section(
       {
         items: cardData,
@@ -78,7 +77,7 @@ function deleteCard(card, cardId) {
     api
       .deleteCard(cardId)
       .then(() => {
-        card.handleDeleteCard();
+        card.deleteClick();
         deleteModal.close();
       })
       .catch((err) => {

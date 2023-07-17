@@ -16,7 +16,7 @@ class Section {
   }
   
   prependItem(element) {
-    this._containerElement.prepend(element);
+    this._container.prepend(element);
   }
 }
 export default Section;

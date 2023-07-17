@@ -55,19 +55,13 @@ export default class Card {
   }
 
   _checkIdForDelete() {
-    if (this._owner === this._currentUserId) {
-      this.addTrash();
-    } else {
+    if (this._owner !== this._currentUserId) {
       this.removeTrash();
     }
   }
 
-  addTrash() {
-    this.cardTrashButton.classList.remove("card__delete-button_active");
-  }
-
   removeTrash() {
-    this.cardTrashButton.classList.add("card__delete-button_active");
+    this.cardTrashButton.remove();
   }
 
   _setEventListeners() {
