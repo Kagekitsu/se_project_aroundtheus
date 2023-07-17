@@ -77,6 +77,16 @@
     margin-right: 24px;
 }
 
+.profile__avatar-button {
+    background-color: black;
+    border-style: none;
+    cursor: pointer;
+  }
+  .profile__avatar-button:hover {
+    opacity: 0.6;
+    background: transparent url(../images/edit_button.svg) center no-repeat;
+  }
+
 
 @media screen and (max-width: 800px) {
     .profile {
@@ -119,13 +129,5 @@
         margin: 0;
     }
 
-    .profile__avatar-button {
-        background-color: black;
-        border-style: none;
-        cursor: pointer;
-      }
-      .profile__avatar-button:hover {
-        opacity: 0.6;
-        background: transparent url(../images/edit_button.svg) center no-repeat;
-      }
+
 }
