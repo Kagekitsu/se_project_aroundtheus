@@ -26,7 +26,7 @@ export default class Card {
     const cardElement = document
       .querySelector(this._cardSelector)
       .content.firstElementChild.cloneNode(true);
-    this._cardLikes = cardElement.querySelector('.card__likes-counter');
+    this._cardLikes = cardElement.querySelector('.card__likes-amount');
     return cardElement;
   }
   
@@ -82,7 +82,7 @@ export default class Card {
     this.cardTrashButton = this._element.querySelector(".card__delete-button");
     this.cardImage = this._element.querySelector(".card__image");
     const cardTitle = this._element.querySelector(".card__title");
-    this._cardLikes = this._element.querySelector(".card__likes-counter"); 
+    this._cardLikes = this._element.querySelector('.card__like-amount'); 
     this.cardImage.src = this._link;
     this.cardImage.alt = this._name;
     cardTitle.textContent = this._name;
