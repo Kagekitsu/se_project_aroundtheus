@@ -90,5 +90,4 @@ export default class Card {
     this._checkIdForDelete();
     return this._element;
   }
-  
 }
