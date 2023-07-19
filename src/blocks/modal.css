@@ -151,6 +151,14 @@
   background: none;
 }
 
+#modal-card-delete-verify-title {
+  padding-bottom: 38px;
+}
+
+#modal-verify-delete-card-button {
+  margin-top: 0;
+}
+
 @media screen and (max-width:880px) {
   .modal__container {
     width: 282px;

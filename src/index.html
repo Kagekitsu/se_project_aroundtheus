@@ -8,7 +8,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0"
     />
     <title>Around The U.S.</title>
-    <link rel="icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="./images/favicon.ico">
   </head>
   <body class="page">
     <div class="page__content">
@@ -21,11 +21,13 @@
       </header>
       <main class="content">
         <section class="profile page__section">
+          <button type="button" class="profile__avatar-button" id="avatar-edit-button">
           <img 
           src="<%=require('./images/Avatar.png')%>" 
           alt="Avatar" 
           class="profile__image" 
           />
+        </button>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -61,7 +63,7 @@
           <input
             type="text"
             class="modal__input"
-            name="title"
+            name="name"
             id="profile-title-input"
             placeholder="Name"
             minlength="2"
@@ -87,14 +89,14 @@
       </div>
     </div>
     <div class="modal" id="profile-add-modal">
-      <div class="modal__container">
+      <div id="modal-add-form" class="modal__container">
         <button class="modal__close" type="button"></button>
         <h3 class="modal__heading">New Place</h3>
-        <form class="modal__form" id="modal-add-form">
+        <form class="modal__form" >
           <input
             type="text"
             class="modal__input"
-            name="title"
+            name="name"
             id="add-name-input"
             placeholder="Title"
             minlength="1"
@@ -105,7 +107,7 @@
           <input
             type="url"
             class="modal__input"
-            name="url"
+            name="link"
             id="add-url-input"
             placeholder="Image URL"
             required
@@ -128,13 +130,52 @@
         <p class="modal__caption"></p>
       </div>
     </div>
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="delete-modal-close-button"></button>
+        <h2 class="modal__heading">Are you sure?</h2>
+        <form class="modal__form">
+          <button class="modal__button modal__delete-button" id="modal-delete-btn" type="submit">
+            Yes
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="edit-avatar-modal-close-button"
+        ></button>
+        <h2 class="modal__heading">Change Profile Picture</h2>
+        <form class="modal__form" id="edit-avatar-form">
+          <input
+            class="modal__input modal__input_type_url"
+            type="url"
+            placeholder="Image URL"
+            name="avatar"
+            id="avatar-url-input"
+            required
+          />
+          <span class="modal__error" id="avatar-url-input-error"></span>
+          <button
+            class="modal__button modal__save-button"
+            id="edit-avatar-save-button"
+            type="submit"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
     <template id="card-template">
       <li class="card">
         <button type="button" class="card__delete-button"></button>
-        <img src="" class="card__image" alt="" />
+        <img src="#" class="card__image" alt="#" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
+          <span class="card__like-amount">0</span>
         </div>
       </li>
     </template>
